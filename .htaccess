@@ -3,4 +3,4 @@ RewriteBase "/album"
 
 #Album Page
 RewriteRule ^([0-9A-Za-z_]+)$ album.php?album=$1 [QSA]
-RewriteRule ^([0-9A-Za-z_]+)/([0-9A-Za-z_]+\.[0-9A-Za-z_]+)$ album.php?album=$1&image=$2 [QSA]
+RewriteRule ^([0-9A-Za-z_]+)/([0-9A-Za-z_]+\.[0-9A-Za-z_]+)$ image.php?album=$1&image=$2 [QSA]
