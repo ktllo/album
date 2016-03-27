@@ -9,6 +9,7 @@
 	<body>
 		<h1>Welcome to Leo's album</h1>
 <?php
+	include_once 'common.php';
 	$datadir = scandir('data');
 	$datas = array();
 	foreach($datadir as $dir){
@@ -37,12 +38,8 @@
 			}
 		}
 		if(!$isInit){
-			$file = fopen('data/'.$dir.'/info.php','w');
-			$date = date('d M Y');
-			fwrite($file, "<?php\n".'$'."albumName = 'Untitled Album';\n".'$'."created = '$date'?>");
-			$created = $date;
-			fclose($file);
-			$albumName = 'Untitled Album';
+			initAlbum($dir);
+			include 'data/'.$dir.'/info.php';
 		}
 		$entry['name'] = $albumName;
 		$entry['created'] = $created;
