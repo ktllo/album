@@ -72,7 +72,7 @@ table.flow td div.desc{
 	</head>
 	<body>
 		<h1><?php echo $albumName;?></h1>
-		<div><a href="./">Home</a> &gt; <?php echo $albumName;?></div>
+		<div><a href="/">Home</a> &gt; <?php echo $albumName;?></div>
 		<div><?php echo $desc;?></div>
 		<hr>
 		<div>
@@ -80,8 +80,8 @@ table.flow td div.desc{
 <table class="flow">
 	<tr>
 		<td>
-			<a href="<?php echo $albumDir;?>/<?php echo $image['path'];?>">
-				<img src="data/<?php echo $albumDir;?>/meta/<?php echo $image['path'];?>">
+			<a href="/<?php echo $albumDir;?>/<?php echo $image['path'];?>">
+				<img src="/data/<?php echo $albumDir;?>/meta/<?php echo $image['path'];?>">
 			</a>
 			<hr>
 			<div style="font-weight:bold;"><?php echo $image['name'];?></div>
