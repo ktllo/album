@@ -10,7 +10,7 @@ $image['name'] = $title;
 $image['created'] = $created;
 $image['desc'] = $desc;
 $image['path'] = $file;
-if(file_exists('data/'.$albumDir.'/info.php'))
+if(!file_exists('data/'.$albumDir.'/info.php'))
 	initAlbum($albumDir);
 include_once 'data/'.$albumDir.'/info.php';
 $fileList = scandir('data/'.$albumDir);

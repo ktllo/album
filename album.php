@@ -75,7 +75,7 @@ table.flow td div.desc{
 		<div><a href="/">Home</a> &gt; <?php echo $albumName;?></div>
 		<div><?php echo $desc;?></div>
 		<hr>
-		<div>
+		<div style="text-align:center;">
 <?php foreach($images as $image){ ?>
 <table class="flow">
 	<tr>
