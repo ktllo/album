@@ -37,9 +37,9 @@ foreach($files as $file){
 <html>
 	<head>
 		<title><?php echo $albumName;?></title>
-		<script src="jquery-2.2.2.min.js"></script> 
-		<script src="jquery-ui.js"></script> 
-		<link rel="stylesheet" type="text/css" href="jquery-ui.css">
+		<script src="/jquery-2.2.2.min.js"></script> 
+		<script src="/jquery-ui.js"></script> 
+		<link rel="stylesheet" type="text/css" href="/jquery-ui.css">
 		<style>
 table.flow{
 	display : inline-block;
