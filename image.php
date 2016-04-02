@@ -132,7 +132,7 @@ $exif = exif_read_data ("data/$albumDir/{$image['path']}",'ANY_TAG');
 <?php if(isset($exif['Make'])){ ?><tr><td>Camrea make</td><td><?php echo $exif['Make'];?></td></tr><?php } ?>
 <?php if(isset($exif['Model'])){ ?><tr><td>Model</td><td><?php echo $exif['Model'];?></td></tr><?php } ?>
 <?php if(isset($exif['ExposureTime'])){ ?><tr><td>Shutter</td><td><?php echo $exif['ExposureTime'];?></td></tr><?php } ?>
-<?php if(isset($exif['ApertureFNumber'])){ ?><tr><td>Aperture</td><td><?php echo $exif['ApertureFNumber'];?></td></tr><?php } ?>
+<?php if(isset($exif['COMPUTED']['ApertureFNumber'])){ ?><tr><td>Aperture</td><td><?php echo $exif['COMPUTED']['ApertureFNumber'];?></td></tr><?php } ?>
 <?php if(isset($exif['ISOSpeedRatings'])){ ?><tr><td>ISO</td><td><?php echo $exif['ISOSpeedRatings'];?></td></tr><?php } ?>
 <?php if(isset($exif['ExposureProgram'])){ ?><tr><td>Exposure Program</td><td><?php switch( $exif['ExposureProgram']){
 case 0: echo 'Unknown'; break;
