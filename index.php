@@ -16,6 +16,9 @@
 		if( $dir[0] == '.' ){
 			continue;
 		}
+		if(!is_dir('data/'.$dir)){
+			continue;
+		}
 		$files = scandir('data/'.$dir);
 		$isInit = false;
 		$fileCount  = 0;
