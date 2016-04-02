@@ -51,7 +51,7 @@ function initImage($album,$img){
 	fwrite($file, '$created="'.$date.'";');
 	fwrite($file, '$desc="";');
 	fwrite($file, '$albumMetaVersion=1;');
-	fclose($file);;
+	fclose($file);
 }
 
 function updateAlbumMeta($album){
