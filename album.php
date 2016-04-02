@@ -22,9 +22,17 @@ foreach($files as $file){
 		$info = file_exists('data/'.$albumDir.'/meta/'.$file.'.php');
 		if(!$thumbnail)
 			createThumbnail($albumDir,$file);
+		if( filemtime('data/'.$albumDir.'/'.$file) > filemtime('data/'.$albumDir.'/meta/'.$file)){
+			createThumbnail($albumDir,$file);
+		}
 		if(!$info)
 			initImage($albumDir,$file);
+		unset($imageMetaVersion);
 		include 'data/'.$albumDir.'/meta/'.$file.'.php';
+		if( empty($imageMetaVersion) || $imageMetaVersion < 1 ){
+			updateImageMeta($albumDir,$file);
+			include 'data/'.$albumDir.'/meta/'.$file.'.php';
+		}
 		$image['name'] = $title;
 		$image['created'] = $created;
 		$image['desc'] = $desc;

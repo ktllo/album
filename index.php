@@ -43,6 +43,11 @@
 		if(!$isInit){
 			initAlbum($dir);
 			include 'data/'.$dir.'/info.php';
+		}else{
+			if(empty($albumMetaVersion) || $albumMetaVersion < 1){
+				updateAlbumMeta($dir);
+				include 'data/'.$dir.'/info.php';
+			}
 		}
 		$entry['name'] = $albumName;
 		$entry['created'] = $created;

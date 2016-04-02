@@ -2,7 +2,10 @@
 function initAlbum($dir){
 	$file = fopen('data/'.$dir.'/info.php','w');
 	$date = date('d M Y');
-	fwrite($file, "<?php\n".'$'."albumName = 'Untitled Album';\n".'$'."created = '$date';".'$'."desc=\"\";?>");
+	fwrite($file, "<?php\n");
+	fwrite($file, '$albumName="Untitled Album";');
+	fwrite($file, '$created="'.$date.'";');
+	fwrite($file, '$albumMetaVersion=1;');
 	fclose($file);
 }
 function createThumbnail($album,$img){
@@ -44,5 +47,26 @@ function initImage($album,$img){
 	$file = fopen('data/'.$album.'/meta/'.$img.'.php','w');
 	$date = date('d M Y');
 	fwrite($file, "<?php\n".'$'."title = 'Untitled';\n".'$'."created = '$date';".'$'."desc=\"\";?>");
+	fclose($file);
+}
+
+function updateAlbumMeta($album){
+	include 'data/'.$album.'/info.php';
+	$file = fopen('data/'.$album.'/info.php','w');
+	fwrite($file, "<?php\n");
+	fwrite($file, '$albumName="'.$albumName.'";');
+	fwrite($file, '$created="'.$created.'";');
+	fwrite($file, '$albumMetaVersion=1;');
+	fclose($file);
+}
+
+function updateImageMeta($albumDir,$file){
+	include 'data/'.$albumDir.'/meta/'.$file.'.php';
+	$file = fopen('data/'.$albumDir.'/meta/'.$file.'.php','w');
+	fwrite($file, "<?php\n");
+	fwrite($file, '$title="'.$title.'";');
+	fwrite($file, '$created="'.$created.'";');
+	fwrite($file, '$desc="'.$desc.'";');
+	fwrite($file, '$albumMetaVersion=1;');
 	fclose($file);
 }
