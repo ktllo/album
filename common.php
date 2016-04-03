@@ -1,4 +1,6 @@
 <?php
+include_once 'config.php';
+
 function initAlbum($dir){
 	$file = fopen('data/'.$dir.'/info.php','w');
 	$date = date('d M Y');

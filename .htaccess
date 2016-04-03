@@ -1,5 +1,10 @@
 RewriteEngine On
 
+#Admin Page
+RewriteRule ^edit/([0-9A-Za-z_]+)$ /edit/album.php?album=$1 [END,QSA]
+RewriteRule ^edit/([0-9A-Za-z_]+)/([0-9A-Za-z_]+\.[0-9A-Za-z_]+)$ /edit/image.php?album=$1&image=$2 [END,QSA]
 #Album Page
 RewriteRule ^([0-9A-Za-z_]+)/?$ album.php?album=$1 [QSA]
 RewriteRule ^([0-9A-Za-z_]+)/([0-9A-Za-z_]+\.[0-9A-Za-z_]+)$ image.php?album=$1&image=$2 [QSA]
+
+
