@@ -2,3 +2,4 @@
 .*.swp
 /data/*
 /user.php
+/bower_components/*
