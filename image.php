@@ -93,6 +93,14 @@ $(function() {
 	}).click(function(){
 		window.location = '<?php echo $imgList[rand(0,count($imgList)-1)];?>';
 	});
+	$( "#edit" ).button({
+		text: false,
+		icons: {
+			primary: "ui-icon-pencil"
+		}
+	}).click(function(){
+		window.location = '/edit/<?php echo $albumDir;?>/<?php echo $image['path'];?>';
+	});
 	$( "#accordion" ).accordion({
       collapsible: true
     });
@@ -112,6 +120,7 @@ $(function() {
 			<button id="next">Next</button>
 			<button id="last">Last</button>
 <?php } ?>
+			<button id="edit">Edit</button>
 		</div>
 		<hr>
 		<div style="width:80%; margin:auto;">
