@@ -9,53 +9,10 @@
 	<body>
 		<h1>Welcome to Leo's album</h1>
 <?php
-	include_once 'common.php';
-	$datadir = scandir('data');
-	$datas = array();
-	foreach($datadir as $dir){
-		if( $dir[0] == '.' ){
-			continue;
-		}
-		if(!is_dir('data/'.$dir)){
-			continue;
-		}
-		$files = scandir('data/'.$dir);
-		$isInit = false;
-		$fileCount  = 0;
-		$albumName = '';
-		foreach($files as $file){
-			if($file=='info.php'){
-				$isInit = true;
-				include 'data/'.$dir.'/info.php';
-			}else{
-				$ext = strtok( $file , '.');
-				while(true){
-					$token = strtok('.');
-					if($token === FALSE)
-						break;
-					$ext = $token;
-				}
-				$ext = strtolower($ext);
-				if($ext == 'jpg' || $ext == 'png')
-					$fileCount++;
-			}
-		}
-		if(!$isInit){
-			initAlbum($dir);
-			include 'data/'.$dir.'/info.php';
-		}else{
-			if(empty($albumMetaVersion) || $albumMetaVersion < 1){
-				updateAlbumMeta($dir);
-				include 'data/'.$dir.'/info.php';
-			}
-		}
-		$entry['name'] = $albumName;
-		$entry['created'] = $created;
-		$entry['size']  = $fileCount;
-		$entry['dir'] = $dir;
-		$datas[] = $entry;
-	}
+include_once 'common.php';
+
 ?>
+	
 		<p style="font-weight:bold;">There are <?php
 	$count = count($datas);
 	echo $count;
